@@ -3,92 +3,592 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>6/7-12 花東縱谷漫遊</title>
+  <title>6/7-12 花東縱谷漫遊｜日式白金版</title>
   <style>
     :root{
-      --bg:#efe3cc;--ink:#1c1917;--muted:#6b5f52;--card:#fffaf0;--line:#d6c7ad;
-      --dark:#1c1917;--amber:#f59e0b;--sky:#0369a1;--green:#047857;--orange:#c2410c;
+      --ivory:#fffdf7;
+      --paper:#fbf7ec;
+      --rice:#f7f1e3;
+      --ink:#262018;
+      --muted:#796d5c;
+      --gold:#b9974f;
+      --gold2:#d7bd79;
+      --gold3:#efe0b2;
+      --line:#dfcc91;
+      --charcoal:#1f1b16;
+      --shadow:0 24px 70px rgba(104,77,30,.14);
+      --radius:28px;
     }
+
     *{box-sizing:border-box}
-    body{margin:0;background:
-      radial-gradient(circle at 15% 8%,rgba(14,116,144,.22),transparent 28%),
-      radial-gradient(circle at 84% 6%,rgba(245,158,11,.28),transparent 30%),
-      radial-gradient(circle at 68% 88%,rgba(22,101,52,.18),transparent 32%),
-      var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%,rgba(215,189,121,.28),transparent 28%),
+        radial-gradient(circle at 88% 16%,rgba(255,255,255,.95),transparent 30%),
+        linear-gradient(135deg,rgba(185,151,79,.08) 0 1px,transparent 1px 20px),
+        var(--ivory);
+    }
+
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.38;
+      background-image:
+        linear-gradient(rgba(185,151,79,.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(185,151,79,.09) 1px, transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom,black,transparent 82%);
+      z-index:-1;
+    }
+
     a{color:inherit}
-    .hero{padding:34px 18px 28px;border-bottom:1px solid var(--line);overflow:hidden}
-    .wrap{max-width:1120px;margin:auto}
-    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #9b8b74;background:rgba(255,255,255,.6);border-radius:999px;padding:9px 14px;font-weight:800;font-size:14px}
-    h1{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(42px,9vw,88px);line-height:.95;margin:22px 0 16px;letter-spacing:-.04em}
-    .lead{max-width:720px;font-size:18px;line-height:1.75;color:#5f5449}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px;max-width:520px}
-    .stat{background:#1c1917;color:#fff6dd;border-radius:24px;padding:18px;text-align:center}
-    .stat b{display:block;font-size:30px}
-    .main{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:28px 18px}
-    .side{position:sticky;top:18px;align-self:start;background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:30px;padding:18px;box-shadow:0 16px 40px rgba(69,48,25,.10)}
-    .side h2{margin:0 0 12px;font-size:19px}
-    .btns{display:flex;flex-wrap:wrap;gap:8px}
-    button{border:0;cursor:pointer;font-weight:900}
-    .filter{padding:10px 14px;border-radius:999px;background:#f4ead8;color:#5f5449}
-    .filter.active{background:#1c1917;color:white}
-    .note{margin-top:18px;background:#fde68a;border-radius:24px;padding:14px;font-size:14px;line-height:1.65}
-    .day{background:rgba(255,250,240,.93);border:1px solid var(--line);border-radius:32px;margin-bottom:18px;overflow:hidden;box-shadow:0 20px 60px rgba(69,48,25,.12)}
-    .dayhead{width:100%;text-align:left;background:transparent;padding:22px;display:flex;justify-content:space-between;gap:14px}
-    .date{display:inline-block;background:#1c1917;color:#fff6dd;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:900;letter-spacing:.08em}
-    .day h2{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(25px,4vw,40px);line-height:1.1;margin:14px 0 8px}
-    .route{color:#62574c;line-height:1.65;margin:0}
-    .chev{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:white;flex:0 0 auto;font-size:22px}
-    .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(244,234,216,.7);padding:16px 22px}
-    .meta div{font-size:14px;line-height:1.6}.meta b{display:block;color:#75695d;font-size:12px;letter-spacing:.12em}
-    .stops{padding:20px 20px 24px;margin:0;list-style:none}
-    .stop{position:relative;background:white;border:1px solid #eadfce;border-radius:26px;padding:16px;margin:0 0 14px 0;box-shadow:0 4px 14px rgba(0,0,0,.04)}
-    .topline{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
-    .time{background:#fef3c7;border-radius:999px;padding:7px 11px;font-weight:950}
-    .tag{background:#f3eee6;border-radius:999px;padding:7px 11px;color:#62574c;font-size:13px;font-weight:800}
-    .stop h3{margin:0;font-size:20px}.place{color:#71665a;font-weight:800;margin:5px 0}.memo{color:#5f5449;line-height:1.65;margin:8px 0 14px}
-    .map{display:inline-flex;text-decoration:none;background:white;border:1px solid #cfc1aa;border-radius:999px;padding:9px 12px;font-weight:900;font-size:13px}
-    .map:hover{background:#1c1917;color:white}
+    button{font:inherit}
+
+    .wrap{max-width:1180px;margin:auto}
+    .hero{
+      position:relative;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+      padding:42px 18px 64px;
+      overflow:hidden;
+      border-bottom:1px solid rgba(185,151,79,.38);
+    }
+
+    .hero:before{
+      content:"縦谷";
+      position:absolute;
+      right:-.18em;
+      top:.18em;
+      font-family:"Times New Roman",serif;
+      font-size:clamp(120px,22vw,330px);
+      line-height:.8;
+      font-weight:900;
+      color:rgba(185,151,79,.075);
+      writing-mode:vertical-rl;
+      letter-spacing:-.22em;
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      right:8%;
+      bottom:58px;
+      width:280px;
+      height:280px;
+      border:1px solid rgba(185,151,79,.55);
+      border-radius:50%;
+      background:
+        radial-gradient(circle,rgba(255,255,255,.9) 0 36%,transparent 37%),
+        conic-gradient(from 45deg,rgba(185,151,79,.25),transparent 20%,rgba(185,151,79,.16) 38%,transparent 62%,rgba(185,151,79,.24));
+      box-shadow:inset 0 0 0 18px rgba(255,255,255,.45);
+      opacity:.75;
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:42px;
+      align-items:end;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:#7a5d19;
+      background:rgba(255,255,255,.72);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.12em;
+      box-shadow:0 12px 30px rgba(185,151,79,.12);
+    }
+
+    .crest{
+      display:inline-flex;
+      width:26px;height:26px;
+      align-items:center;justify-content:center;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:white;
+      font-weight:950;
+      font-size:14px;
+    }
+
+    h1{
+      margin:24px 0 18px;
+      font-family:"Noto Serif TC","Songti TC","Times New Roman",serif;
+      font-size:clamp(45px,8.2vw,104px);
+      line-height:.98;
+      letter-spacing:-.055em;
+      font-weight:950;
+    }
+
+    .gold-text{
+      background:linear-gradient(95deg,#1f1b16 0%,#1f1b16 46%,#a9842f 76%,#caa95b 100%);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      max-width:690px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.9;
+      margin:0;
+    }
+
+    .summary-card{
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.86),rgba(251,247,236,.86)),
+        repeating-linear-gradient(90deg,rgba(185,151,79,.08) 0 1px,transparent 1px 12px);
+      box-shadow:var(--shadow);
+      padding:22px;
+      backdrop-filter:blur(10px);
+    }
+
+    .summary-card h2{
+      margin:0 0 16px;
+      font-family:"Noto Serif TC","Songti TC",serif;
+      font-size:24px;
+      letter-spacing:.03em;
+    }
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .stat{
+      text-align:center;
+      border:1px solid rgba(185,151,79,.42);
+      border-radius:22px;
+      background:rgba(255,255,255,.68);
+      padding:16px 8px;
+    }
+    .stat b{display:block;font-size:30px;font-family:Georgia,serif;color:#9a7428}
+    .summary-card p{color:var(--muted);line-height:1.75;font-size:14px;margin:16px 0 0}
+
+    .main{
+      display:grid;
+      grid-template-columns:282px 1fr;
+      gap:26px;
+      padding:34px 18px 42px;
+    }
+
+    .side{
+      position:sticky;
+      top:18px;
+      align-self:start;
+      border:1px solid var(--line);
+      border-radius:32px;
+      background:rgba(255,255,255,.78);
+      box-shadow:var(--shadow);
+      padding:18px;
+      backdrop-filter:blur(10px);
+    }
+
+    .side-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .side h2{
+      margin:0;
+      font-family:"Noto Serif TC","Songti TC",serif;
+      font-size:21px;
+    }
+
+    .seal{
+      width:44px;height:44px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--charcoal);
+      color:var(--gold3);
+      border:2px solid var(--gold);
+      font-family:serif;
+      font-weight:900;
+    }
+
+    .btns{display:grid;gap:8px}
+    .filter{
+      width:100%;
+      border:1px solid rgba(185,151,79,.38);
+      background:linear-gradient(180deg,#fff,#fbf5e6);
+      color:#6b5b3f;
+      border-radius:999px;
+      padding:11px 14px;
+      cursor:pointer;
+      font-weight:900;
+      text-align:left;
+      transition:.2s ease;
+    }
+    .filter:hover{transform:translateY(-1px);border-color:var(--gold);box-shadow:0 10px 22px rgba(185,151,79,.12)}
+    .filter.active{
+      color:white;
+      border-color:#8b6725;
+      background:linear-gradient(135deg,#1f1b16,#5f4618 64%,#b9974f);
+      box-shadow:0 14px 26px rgba(104,77,30,.22);
+    }
+
+    .note{
+      margin-top:16px;
+      border:1px solid rgba(185,151,79,.36);
+      background:linear-gradient(180deg,#fff9e8,#fffdf7);
+      border-radius:26px;
+      padding:15px;
+      font-size:14px;
+      line-height:1.75;
+      color:var(--muted);
+    }
+    .note b{display:block;color:#7a5d19;margin-bottom:4px}
+    .note a{display:inline-block;margin-top:8px;color:#8a681e;font-weight:950;text-decoration:none;border-bottom:1px solid var(--gold)}
+
+    .day{
+      position:relative;
+      margin-bottom:20px;
+      border:1px solid var(--line);
+      border-radius:34px;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.94),rgba(251,247,236,.94)),
+        var(--paper);
+      box-shadow:var(--shadow);
+    }
+
+    .day:before{
+      content:"";
+      position:absolute;
+      left:0;top:0;bottom:0;width:8px;
+      background:linear-gradient(180deg,var(--gold2),var(--gold),#7b5b1d);
+    }
+
+    .dayhead{
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 52px;
+      gap:18px;
+      align-items:start;
+      text-align:left;
+      border:0;
+      background:transparent;
+      padding:24px 24px 22px 32px;
+      cursor:pointer;
+      color:var(--ink);
+    }
+
+    .date{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--gold);
+      border-radius:999px;
+      padding:7px 13px;
+      background:linear-gradient(180deg,#fff,#fbf1d8);
+      color:#7d5d18;
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:.08em;
+    }
+
+    .day h2{
+      margin:14px 0 8px;
+      font-family:"Noto Serif TC","Songti TC",serif;
+      font-size:clamp(25px,4vw,39px);
+      line-height:1.18;
+      letter-spacing:-.035em;
+    }
+
+    .route{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      max-width:780px;
+    }
+
+    .chev{
+      width:48px;height:48px;
+      border:1px solid var(--line);
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.72);
+      color:#84631c;
+      font-size:24px;
+      transition:.2s ease;
+    }
+    .day.open .chev{transform:rotate(180deg);background:#1f1b16;color:var(--gold3)}
+
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      padding:16px 24px 16px 32px;
+      border-top:1px solid rgba(185,151,79,.36);
+      border-bottom:1px solid rgba(185,151,79,.36);
+      background:
+        linear-gradient(90deg,rgba(185,151,79,.11),rgba(255,255,255,.5)),
+        rgba(251,247,236,.9);
+    }
+
+    .meta div{
+      position:relative;
+      padding:4px 4px 4px 16px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+    .meta div:before{
+      content:"";
+      position:absolute;
+      left:0;top:8px;width:4px;height:calc(100% - 16px);
+      border-radius:999px;
+      background:var(--gold);
+    }
+    .meta b{
+      display:block;
+      color:#7d5d18;
+      font-size:12px;
+      letter-spacing:.16em;
+      margin-bottom:2px;
+    }
+
+    .body{display:block}
     .hidden{display:none}
-    .footer{background:#1c1917;color:#fff6dd;padding:34px 18px;margin-top:20px}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:18px;line-height:1.65}
-    .num{display:inline-flex;background:#fbbf24;color:#1c1917;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;font-weight:950;margin-bottom:10px}
-    @media(max-width:820px){.main{display:block}.side{position:static;margin-bottom:18px}.meta{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr}.hero{padding-top:26px}.dayhead{padding:18px}.stops{padding:16px}.lead{font-size:16px}}
+
+    .stops{
+      margin:0;
+      padding:22px 22px 26px 46px;
+      list-style:none;
+      position:relative;
+    }
+    .stops:before{
+      content:"";
+      position:absolute;
+      top:26px;bottom:34px;left:31px;
+      width:1px;
+      background:linear-gradient(180deg,transparent,var(--gold),transparent);
+    }
+
+    .stop{
+      position:relative;
+      margin:0 0 14px;
+      padding:17px;
+      border:1px solid rgba(185,151,79,.34);
+      border-radius:26px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,253,247,.94));
+      box-shadow:0 9px 24px rgba(82,61,22,.07);
+    }
+
+    .stop:before{
+      content:"";
+      position:absolute;
+      left:-25px;top:22px;
+      width:13px;height:13px;
+      border-radius:50%;
+      background:#fff;
+      border:3px solid var(--gold);
+      box-shadow:0 0 0 5px rgba(215,189,121,.16);
+    }
+
+    .topline{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:10px;
+    }
+
+    .time{
+      background:linear-gradient(135deg,#1f1b16,#6f5320);
+      color:#fff8df;
+      border-radius:999px;
+      padding:7px 12px;
+      font-weight:950;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .tag{
+      border:1px solid rgba(185,151,79,.3);
+      background:#fbf4e4;
+      color:#75591b;
+      border-radius:999px;
+      padding:7px 11px;
+      font-size:13px;
+      font-weight:850;
+    }
+
+    .stop h3{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    .place{
+      color:#796d5c;
+      font-weight:900;
+      margin:5px 0 0;
+    }
+    .memo{
+      color:#64594c;
+      line-height:1.75;
+      margin:9px 0 14px;
+    }
+
+    .map{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      text-decoration:none;
+      border:1px solid var(--gold);
+      border-radius:999px;
+      padding:9px 13px;
+      color:#654a13;
+      background:
+        linear-gradient(180deg,#fff,#fbf1d8);
+      font-size:13px;
+      font-weight:950;
+      transition:.2s ease;
+    }
+    .map:hover{
+      transform:translateY(-1px);
+      background:#1f1b16;
+      color:#fff8df;
+      box-shadow:0 10px 22px rgba(104,77,30,.16);
+    }
+
+    .footer{
+      background:
+        radial-gradient(circle at 12% 10%,rgba(215,189,121,.16),transparent 30%),
+        #1f1b16;
+      color:#fff8df;
+      padding:42px 18px;
+      border-top:4px solid var(--gold);
+    }
+    .footer h2{
+      margin:0 0 16px;
+      font-family:"Noto Serif TC","Songti TC",serif;
+      font-size:36px;
+      letter-spacing:-.03em;
+    }
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .step{
+      border:1px solid rgba(215,189,121,.38);
+      background:rgba(255,255,255,.07);
+      border-radius:26px;
+      padding:18px;
+      line-height:1.75;
+      color:#f4e9c8;
+    }
+    .num{
+      display:inline-flex;
+      width:38px;height:38px;
+      align-items:center;justify-content:center;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      color:#1f1b16;
+      font-weight:950;
+      margin-bottom:10px;
+    }
+    .step b{display:block;color:#fff;font-size:18px;margin-bottom:2px}
+
+    @media(max-width:900px){
+      .hero{min-height:auto;padding:28px 16px 44px}
+      .hero-grid{display:block}
+      .hero:after{width:170px;height:170px;right:-20px;bottom:26px;opacity:.45}
+      .summary-card{margin-top:26px}
+      .main{display:block;padding:24px 14px 36px}
+      .side{position:static;margin-bottom:18px}
+      .btns{grid-template-columns:repeat(2,1fr)}
+      .meta{grid-template-columns:1fr;padding-left:24px}
+      .dayhead{padding:20px 16px 18px 24px;grid-template-columns:1fr 44px}
+      .chev{width:42px;height:42px}
+      .stops{padding:18px 14px 22px 38px}
+      .stops:before{left:25px}
+      .stop:before{left:-21px}
+      .steps{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media(max-width:480px){
+      h1{font-size:43px}
+      .lead{font-size:16px}
+      .stats{grid-template-columns:1fr}
+      .summary-card{border-radius:26px}
+      .btns{grid-template-columns:1fr}
+      .stop h3{font-size:18px}
+    }
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="wrap">
-      <span class="pill">☀️ 2026/6/7–6/12｜花東縱谷漫遊</span>
-      <h1>稻浪、海岸線<br>與縱谷慢旅行</h1>
-      <p class="lead">六天行程互動版：每天可展開看時程、推估車程、停留時間、Google Maps 定位與天氣提醒。適合直接分享給同行親友手機查看。</p>
-      <div class="stats"><div class="stat"><b>6</b>天</div><div class="stat"><b>40+</b>停靠點</div><div class="stat"><b>1</b>固定預約</div></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><span class="crest">旅</span> 2026/6/7–6/12｜花東縱谷漫遊</span>
+        <h1><span class="gold-text">稻浪、海岸線<br>與縱谷慢旅行</span></h1>
+        <p class="lead">白色和紙感底色、金邊細節、日式旅帖排版。每天可展開看時程、推估車程、停留時間、Google Maps 定位與天氣提醒，適合直接分享給同行親友手機查看。</p>
+      </div>
+      <aside class="summary-card">
+        <h2>旅の概要</h2>
+        <div class="stats">
+          <div class="stat"><b>6</b>天</div>
+          <div class="stat"><b>40+</b>停靠點</div>
+          <div class="stat"><b>1</b>固定預約</div>
+        </div>
+        <p>車程為自駕保守估算，已把休息、停車、山路與午後陣雨緩衝納入；實際仍以 Google Maps 當下路況為準。</p>
+      </aside>
     </div>
   </header>
+
   <main class="wrap main">
     <aside class="side">
-      <h2>快速篩選</h2>
+      <div class="side-title">
+        <h2>行程篩選</h2>
+        <span class="seal">谷</span>
+      </div>
       <div class="btns">
-        <button class="filter active" data-filter="all">全部</button>
+        <button class="filter active" data-filter="all">全部停靠</button>
         <button class="filter" data-filter="food">餐食</button>
         <button class="filter" data-filter="spot">景點</button>
-        <button class="filter" data-filter="coffee">咖啡</button>
+        <button class="filter" data-filter="coffee">咖啡甜點</button>
         <button class="filter" data-filter="stay">住宿</button>
         <button class="filter" data-filter="drive">移動</button>
       </div>
-      <div class="note"><b>天氣提醒</b><br>六月東部與屏東常有午後雷陣雨。出發前一天請再查中央氣象署縣市預報；海邊、山路、縱谷景點可能和市區預報不同。<br><a target="_blank" href="https://www.cwa.gov.tw/V8/C/W/County/index.html">查看中央氣象署 →</a></div>
+      <div class="note">
+        <b>天氣提醒</b>
+        六月東部與屏東常有午後雷陣雨。出發前一天請再查中央氣象署縣市預報；海邊、山路、縱谷景點可能和市區預報不同。
+        <br><a target="_blank" rel="noreferrer" href="https://www.cwa.gov.tw/V8/C/W/County/index.html">查看中央氣象署 →</a>
+      </div>
     </aside>
-    <section id="days"></section>
+
+    <section id="days" aria-label="每日行程"></section>
   </main>
+
   <footer class="footer">
     <div class="wrap">
-      <h2 style="font-family:Georgia,'Noto Serif TC',serif;font-size:36px;margin:0 0 16px">如何讓大家使用</h2>
+      <h2>分享給大家使用</h2>
       <div class="steps">
-        <div class="step"><span class="num">1</span><b>上傳資料夾</b><br>把這個 index.html 放在資料夾中，上傳到 Netlify Drop。</div>
-        <div class="step"><span class="num">2</span><b>取得公開網址</b><br>Netlify 會產生正式網址，不是編輯器預覽網址。</div>
-        <div class="step"><span class="num">3</span><b>貼到 LINE 群</b><br>大家用手機點開即可查看，Google Map 按鈕會開定位搜尋。</div>
+        <div class="step"><span class="num">1</span><b>上傳 GitHub Pages</b>把 index.html 放到 repository 根目錄，Pages 選 main / root。</div>
+        <div class="step"><span class="num">2</span><b>取得正式網址</b>網址通常是「帳號.github.io/專案名稱/」，手機可直接開。</div>
+        <div class="step"><span class="num">3</span><b>貼到 LINE 群</b>大家點開即可查看，Google Map 按鈕會開定位搜尋。</div>
       </div>
     </div>
   </footer>
+
 <script>
 const days = [
 {date:"6/7（日）",title:"第一天｜嘉義出發 → 屏東 → 都蘭",base:"嘉義、屏東、臺東都蘭",weather:"南部至臺東偏炎熱，午後易有局部雷陣雨；海邊晚間較悶，建議備薄外套與雨具。",driveTotal:"約 5.5–6.5 小時",routeNote:"嘉義到屏東午餐後再跨南迴到都蘭，這天移動距離最長，建議提早出發。",stops:[
@@ -145,34 +645,64 @@ const days = [
 ];
 
 const typeLabel={food:"餐食",spot:"景點",coffee:"咖啡",stay:"住宿",drive:"移動"};
+const typeIcon={food:"箸",spot:"景",coffee:"茶",stay:"宿",drive:"車"};
 function maps(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q)}
+
 function render(filter="all"){
   const root=document.getElementById("days");
-  root.innerHTML=days.map((d,i)=>`
-    <article class="day" data-day="${i}">
-      <button class="dayhead" onclick="toggleDay(${i})">
-        <div><span class="date">${d.date}</span><h2>${d.title}</h2><p class="route">${d.routeNote}</p></div>
+  root.innerHTML=days.map((d,i)=>{
+    const stops=d.stops.filter(s=>filter==="all"||s[1]===filter);
+    if(filter!=="all" && stops.length===0) return "";
+    return `
+    <article class="day ${i===0 || filter!=="all" ? "open" : ""}" data-day="${i}">
+      <button class="dayhead" onclick="toggleDay(${i})" aria-expanded="${i===0 || filter!=="all"}">
+        <div>
+          <span class="date">◇ ${d.date}</span>
+          <h2>${d.title}</h2>
+          <p class="route">${d.routeNote}</p>
+        </div>
         <span class="chev">⌄</span>
       </button>
-      <div class="body ${i===0?'':'hidden'}">
-        <div class="meta"><div><b>當日天氣</b>${d.weather}</div><div><b>車程總量</b>${d.driveTotal}</div><div><b>主要區域</b>${d.base}</div></div>
+      <div class="body ${i===0 || filter!=="all" ? "" : "hidden"}">
+        <div class="meta">
+          <div><b>當日天氣</b>${d.weather}</div>
+          <div><b>車程總量</b>${d.driveTotal}</div>
+          <div><b>主要區域</b>${d.base}</div>
+        </div>
         <ul class="stops">
-          ${d.stops.filter(s=>filter==="all"||s[1]===filter).map(s=>`
+          ${stops.map(s=>`
             <li class="stop" data-type="${s[1]}">
-              <div class="topline"><span class="time">${s[0]}</span><span class="tag">${typeLabel[s[1]]}</span><span class="tag">${s[4]}</span></div>
-              <h3>${s[2]}</h3><div class="place">${s[3]}</div><p class="memo">${s[6]}</p>
-              <a class="map" target="_blank" href="${maps(s[5])}">Google Map ↗</a>
+              <div class="topline">
+                <span class="time">${s[0]}</span>
+                <span class="tag">${typeIcon[s[1]] || "旅"} ${typeLabel[s[1]]}</span>
+                <span class="tag">${s[4]}</span>
+              </div>
+              <h3>${s[2]}</h3>
+              <div class="place">${s[3]}</div>
+              <p class="memo">${s[6]}</p>
+              <a class="map" target="_blank" rel="noreferrer" href="${maps(s[5])}">Google Map ↗</a>
             </li>`).join("")}
         </ul>
       </div>
-    </article>`).join("");
+    </article>`;
+  }).join("");
 }
-function toggleDay(i){document.querySelector(`[data-day="${i}"] .body`).classList.toggle("hidden")}
+
+function toggleDay(i){
+  const day=document.querySelector(`[data-day="${i}"]`);
+  const body=day.querySelector(".body");
+  const button=day.querySelector(".dayhead");
+  const isHidden=body.classList.toggle("hidden");
+  day.classList.toggle("open", !isHidden);
+  button.setAttribute("aria-expanded", String(!isHidden));
+}
+
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
   document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active"); render(btn.dataset.filter);
-  if(btn.dataset.filter!=="all") document.querySelectorAll(".body").forEach(b=>b.classList.remove("hidden"));
+  btn.classList.add("active");
+  render(btn.dataset.filter);
 }));
+
 render();
 </script>
 </body>
