@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>6/7-12 花東縱谷漫遊｜日式白金版</title>
+  <title>6/7-12 花東縱谷漫遊</title>
   <style>
     :root{
-      --ivory:#fffdf7;
-      --paper:#fbf7ec;
-      --rice:#f7f1e3;
-      --ink:#262018;
-      --muted:#796d5c;
-      --gold:#b9974f;
-      --gold2:#d7bd79;
-      --gold3:#efe0b2;
-      --line:#dfcc91;
-      --charcoal:#1f1b16;
-      --shadow:0 24px 70px rgba(104,77,30,.14);
-      --radius:28px;
+      --bg:#fffdf8;
+      --paper:#ffffff;
+      --paper-warm:#fbf6ea;
+      --ink:#241f18;
+      --muted:#7d725f;
+      --soft:#a69673;
+      --gold:#b9964b;
+      --gold-2:#d9bf78;
+      --gold-3:#f1e3bd;
+      --line:rgba(185,150,75,.38);
+      --shadow:0 22px 70px rgba(89,68,27,.13);
+      --radius:30px;
     }
 
     *{box-sizing:border-box}
@@ -27,522 +27,97 @@
       color:var(--ink);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",sans-serif;
       background:
-        radial-gradient(circle at 12% 8%,rgba(215,189,121,.28),transparent 28%),
-        radial-gradient(circle at 88% 16%,rgba(255,255,255,.95),transparent 30%),
-        linear-gradient(135deg,rgba(185,151,79,.08) 0 1px,transparent 1px 20px),
-        var(--ivory);
+        radial-gradient(circle at 10% 8%,rgba(217,191,120,.25),transparent 28%),
+        radial-gradient(circle at 92% 12%,rgba(255,255,255,.9),transparent 32%),
+        linear-gradient(135deg,rgba(185,150,75,.06) 0 1px,transparent 1px 22px),
+        var(--bg);
     }
 
-    body:before{
+    body::before{
       content:"";
       position:fixed;
       inset:0;
-      pointer-events:none;
-      opacity:.38;
-      background-image:
-        linear-gradient(rgba(185,151,79,.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(185,151,79,.09) 1px, transparent 1px);
-      background-size:42px 42px;
-      mask-image:linear-gradient(to bottom,black,transparent 82%);
       z-index:-1;
+      pointer-events:none;
+      opacity:.42;
+      background-image:
+        linear-gradient(rgba(185,150,75,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(185,150,75,.08) 1px,transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(to bottom,black,transparent 84%);
     }
 
     a{color:inherit}
     button{font:inherit}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
-    .wrap{max-width:1180px;margin:auto}
     .hero{
       position:relative;
-      min-height:560px;
+      min-height:420px;
       display:flex;
       align-items:center;
-      padding:42px 18px 64px;
       overflow:hidden;
-      border-bottom:1px solid rgba(185,151,79,.38);
+      border-bottom:1px solid var(--line);
+      padding:44px 0 36px;
     }
-
-    .hero:before{
+    .hero::before{
       content:"縦谷";
       position:absolute;
-      right:-.18em;
-      top:.18em;
-      font-family:"Times New Roman",serif;
-      font-size:clamp(120px,22vw,330px);
-      line-height:.8;
+      right:-.1em;
+      top:.05em;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(120px,22vw,300px);
+      line-height:.82;
       font-weight:900;
-      color:rgba(185,151,79,.075);
       writing-mode:vertical-rl;
+      color:rgba(185,150,75,.07);
       letter-spacing:-.22em;
     }
-
-    .hero:after{
+    .hero::after{
       content:"";
       position:absolute;
-      right:8%;
-      bottom:58px;
-      width:280px;
-      height:280px;
-      border:1px solid rgba(185,151,79,.55);
+      right:9%;
+      bottom:30px;
+      width:230px;
+      height:230px;
       border-radius:50%;
-      background:
-        radial-gradient(circle,rgba(255,255,255,.9) 0 36%,transparent 37%),
-        conic-gradient(from 45deg,rgba(185,151,79,.25),transparent 20%,rgba(185,151,79,.16) 38%,transparent 62%,rgba(185,151,79,.24));
-      box-shadow:inset 0 0 0 18px rgba(255,255,255,.45);
-      opacity:.75;
+      border:1px solid rgba(185,150,75,.55);
+      background:radial-gradient(circle,rgba(255,255,255,.8) 0 40%,transparent 41%), conic-gradient(from 20deg,rgba(185,150,75,.22),transparent 22%,rgba(185,150,75,.13) 45%,transparent 70%,rgba(185,150,75,.22));
+      box-shadow:inset 0 0 0 16px rgba(255,255,255,.42);
+      opacity:.7;
     }
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 330px;gap:42px;align-items:end}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.74);box-shadow:0 12px 28px rgba(185,150,75,.12);font-size:13px;font-weight:900;letter-spacing:.12em;color:#785b19}
+    .crest{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;font-weight:950}
+    h1{margin:24px 0 16px;font-family:"Noto Serif TC","Songti TC",Georgia,serif;font-size:clamp(44px,8vw,96px);line-height:.98;letter-spacing:-.055em;font-weight:950;background:linear-gradient(95deg,#1f1b16 0%,#1f1b16 50%,#a88331 82%,#d4b36a 100%);-webkit-background-clip:text;color:transparent}
+    .lead{max-width:700px;margin:0;color:var(--muted);font-size:18px;line-height:1.85}
+    .summary{border:1px solid var(--line);border-radius:32px;background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(251,246,234,.88));box-shadow:var(--shadow);padding:22px;backdrop-filter:blur(10px)}
+    .summary h2{margin:0 0 14px;font-family:"Noto Serif TC","Songti TC",serif;font-size:24px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{text-align:center;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.7);padding:14px 8px}.stat b{display:block;color:#987126;font-family:Georgia,serif;font-size:30px}.summary p{margin:14px 0 0;color:var(--muted);font-size:14px;line-height:1.75}
 
-    .hero-grid{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:1fr 360px;
-      gap:42px;
-      align-items:end;
-    }
+    .tabs-shell{position:sticky;top:0;z-index:5;background:rgba(255,253,248,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .tabs{display:flex;gap:8px;overflow:auto;padding:14px 18px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+    .tab{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;cursor:pointer;font-weight:900;color:#6d5c39;transition:.2s ease}.tab:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(185,150,75,.12)}.tab.active{background:linear-gradient(135deg,#211d17,#6b4f1a 60%,var(--gold));color:#fff7df;border-color:#8b6727;box-shadow:0 14px 28px rgba(89,68,27,.20)}
 
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      color:#7a5d19;
-      background:rgba(255,255,255,.72);
-      font-size:13px;
-      font-weight:900;
-      letter-spacing:.12em;
-      box-shadow:0 12px 30px rgba(185,151,79,.12);
-    }
+    main{padding:28px 0 50px}.panel{display:none}.panel.active{display:block}.day-layout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}.day-brief{position:sticky;top:84px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(251,246,234,.9));box-shadow:var(--shadow);padding:22px}.date-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);border-radius:999px;background:linear-gradient(180deg,#fff,#fbf1d8);color:#775819;font-size:13px;font-weight:950;letter-spacing:.08em;padding:8px 13px}.day-brief h2{margin:16px 0 10px;font-family:"Noto Serif TC","Songti TC",serif;font-size:32px;line-height:1.18;letter-spacing:-.04em}.brief-text{margin:0;color:var(--muted);line-height:1.75}.brief-grid{display:grid;gap:10px;margin-top:18px}.brief-item{border:1px solid rgba(185,150,75,.34);border-radius:22px;background:rgba(255,255,255,.66);padding:13px 14px;color:var(--muted);line-height:1.6}.brief-item b{display:block;color:#7d5d18;font-size:12px;letter-spacing:.16em;margin-bottom:3px}.weather-link{display:inline-flex;margin-top:14px;text-decoration:none;border-bottom:1px solid var(--gold);color:#7d5d18;font-weight:950}
 
-    .crest{
-      display:inline-flex;
-      width:26px;height:26px;
-      align-items:center;justify-content:center;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:white;
-      font-weight:950;
-      font-size:14px;
-    }
+    .timeline{position:relative;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.76);box-shadow:var(--shadow);padding:24px 22px 10px}.timeline::before{content:"";position:absolute;left:38px;top:38px;bottom:30px;width:1px;background:linear-gradient(180deg,transparent,var(--gold),transparent)}.stop{position:relative;display:grid;grid-template-columns:82px 1fr;gap:14px;margin-bottom:14px}.stop::before{content:"";position:absolute;left:9px;top:14px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(217,191,120,.18)}.stop-time{padding-left:30px;font-weight:950;color:#6e5117;font-variant-numeric:tabular-nums;padding-top:7px}.stop-card{border:1px solid rgba(185,150,75,.32);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,253,247,.96));padding:15px 16px;box-shadow:0 8px 22px rgba(89,68,27,.07)}.stop-top{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}.chip{border:1px solid rgba(185,150,75,.28);border-radius:999px;background:#fbf4e4;color:#75591b;padding:6px 10px;font-size:13px;font-weight:850}.stop-card h3{margin:0;font-size:20px;letter-spacing:-.01em}.place{margin:6px 0 0;color:#786d5b;font-weight:900}.memo{margin:9px 0 14px;color:#64594c;line-height:1.75}.map{display:inline-flex;align-items:center;gap:7px;text-decoration:none;border:1px solid var(--gold);border-radius:999px;padding:9px 13px;background:linear-gradient(180deg,#fff,#fbf1d8);color:#654a13;font-size:13px;font-weight:950;transition:.2s ease}.map:hover{transform:translateY(-1px);background:#211d17;color:#fff7df;box-shadow:0 10px 22px rgba(89,68,27,.16)}
 
-    h1{
-      margin:24px 0 18px;
-      font-family:"Noto Serif TC","Songti TC","Times New Roman",serif;
-      font-size:clamp(45px,8.2vw,104px);
-      line-height:.98;
-      letter-spacing:-.055em;
-      font-weight:950;
-    }
+    .info-head{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(251,246,234,.9));box-shadow:var(--shadow);padding:22px;margin-bottom:18px}.info-head h2{margin:0 0 8px;font-family:"Noto Serif TC","Songti TC",serif;font-size:36px}.info-head p{margin:0;color:var(--muted);line-height:1.75}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.82);box-shadow:var(--shadow);overflow:hidden}.info-card h3{margin:0;padding:18px 20px;border-bottom:1px solid var(--line);font-family:"Noto Serif TC","Songti TC",serif;font-size:26px;background:linear-gradient(90deg,rgba(217,191,120,.22),rgba(255,255,255,.4))}.info-list{padding:10px 16px 16px}.info-row{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(185,150,75,.18)}.info-row:last-child{border-bottom:0}.info-name{font-weight:950}.info-detail{color:var(--muted);line-height:1.65}.info-detail small{display:block;color:#9a8a6f;margin-top:4px}.info-detail a{display:inline-flex;margin-top:7px;color:#7d5d18;font-weight:950;text-decoration:none;border-bottom:1px solid var(--gold)}
 
-    .gold-text{
-      background:linear-gradient(95deg,#1f1b16 0%,#1f1b16 46%,#a9842f 76%,#caa95b 100%);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-
-    .lead{
-      max-width:690px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.9;
-      margin:0;
-    }
-
-    .summary-card{
-      border:1px solid var(--line);
-      border-radius:34px;
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.86),rgba(251,247,236,.86)),
-        repeating-linear-gradient(90deg,rgba(185,151,79,.08) 0 1px,transparent 1px 12px);
-      box-shadow:var(--shadow);
-      padding:22px;
-      backdrop-filter:blur(10px);
-    }
-
-    .summary-card h2{
-      margin:0 0 16px;
-      font-family:"Noto Serif TC","Songti TC",serif;
-      font-size:24px;
-      letter-spacing:.03em;
-    }
-
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .stat{
-      text-align:center;
-      border:1px solid rgba(185,151,79,.42);
-      border-radius:22px;
-      background:rgba(255,255,255,.68);
-      padding:16px 8px;
-    }
-    .stat b{display:block;font-size:30px;font-family:Georgia,serif;color:#9a7428}
-    .summary-card p{color:var(--muted);line-height:1.75;font-size:14px;margin:16px 0 0}
-
-    .main{
-      display:grid;
-      grid-template-columns:282px 1fr;
-      gap:26px;
-      padding:34px 18px 42px;
-    }
-
-    .side{
-      position:sticky;
-      top:18px;
-      align-self:start;
-      border:1px solid var(--line);
-      border-radius:32px;
-      background:rgba(255,255,255,.78);
-      box-shadow:var(--shadow);
-      padding:18px;
-      backdrop-filter:blur(10px);
-    }
-
-    .side-title{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom:14px;
-    }
-
-    .side h2{
-      margin:0;
-      font-family:"Noto Serif TC","Songti TC",serif;
-      font-size:21px;
-    }
-
-    .seal{
-      width:44px;height:44px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      background:var(--charcoal);
-      color:var(--gold3);
-      border:2px solid var(--gold);
-      font-family:serif;
-      font-weight:900;
-    }
-
-    .btns{display:grid;gap:8px}
-    .filter{
-      width:100%;
-      border:1px solid rgba(185,151,79,.38);
-      background:linear-gradient(180deg,#fff,#fbf5e6);
-      color:#6b5b3f;
-      border-radius:999px;
-      padding:11px 14px;
-      cursor:pointer;
-      font-weight:900;
-      text-align:left;
-      transition:.2s ease;
-    }
-    .filter:hover{transform:translateY(-1px);border-color:var(--gold);box-shadow:0 10px 22px rgba(185,151,79,.12)}
-    .filter.active{
-      color:white;
-      border-color:#8b6725;
-      background:linear-gradient(135deg,#1f1b16,#5f4618 64%,#b9974f);
-      box-shadow:0 14px 26px rgba(104,77,30,.22);
-    }
-
-    .note{
-      margin-top:16px;
-      border:1px solid rgba(185,151,79,.36);
-      background:linear-gradient(180deg,#fff9e8,#fffdf7);
-      border-radius:26px;
-      padding:15px;
-      font-size:14px;
-      line-height:1.75;
-      color:var(--muted);
-    }
-    .note b{display:block;color:#7a5d19;margin-bottom:4px}
-    .note a{display:inline-block;margin-top:8px;color:#8a681e;font-weight:950;text-decoration:none;border-bottom:1px solid var(--gold)}
-
-    .day{
-      position:relative;
-      margin-bottom:20px;
-      border:1px solid var(--line);
-      border-radius:34px;
-      overflow:hidden;
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.94),rgba(251,247,236,.94)),
-        var(--paper);
-      box-shadow:var(--shadow);
-    }
-
-    .day:before{
-      content:"";
-      position:absolute;
-      left:0;top:0;bottom:0;width:8px;
-      background:linear-gradient(180deg,var(--gold2),var(--gold),#7b5b1d);
-    }
-
-    .dayhead{
-      width:100%;
-      display:grid;
-      grid-template-columns:1fr 52px;
-      gap:18px;
-      align-items:start;
-      text-align:left;
-      border:0;
-      background:transparent;
-      padding:24px 24px 22px 32px;
-      cursor:pointer;
-      color:var(--ink);
-    }
-
-    .date{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:1px solid var(--gold);
-      border-radius:999px;
-      padding:7px 13px;
-      background:linear-gradient(180deg,#fff,#fbf1d8);
-      color:#7d5d18;
-      font-size:13px;
-      font-weight:950;
-      letter-spacing:.08em;
-    }
-
-    .day h2{
-      margin:14px 0 8px;
-      font-family:"Noto Serif TC","Songti TC",serif;
-      font-size:clamp(25px,4vw,39px);
-      line-height:1.18;
-      letter-spacing:-.035em;
-    }
-
-    .route{
-      margin:0;
-      color:var(--muted);
-      line-height:1.75;
-      max-width:780px;
-    }
-
-    .chev{
-      width:48px;height:48px;
-      border:1px solid var(--line);
-      border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(255,255,255,.72);
-      color:#84631c;
-      font-size:24px;
-      transition:.2s ease;
-    }
-    .day.open .chev{transform:rotate(180deg);background:#1f1b16;color:var(--gold3)}
-
-    .meta{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      padding:16px 24px 16px 32px;
-      border-top:1px solid rgba(185,151,79,.36);
-      border-bottom:1px solid rgba(185,151,79,.36);
-      background:
-        linear-gradient(90deg,rgba(185,151,79,.11),rgba(255,255,255,.5)),
-        rgba(251,247,236,.9);
-    }
-
-    .meta div{
-      position:relative;
-      padding:4px 4px 4px 16px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-    }
-    .meta div:before{
-      content:"";
-      position:absolute;
-      left:0;top:8px;width:4px;height:calc(100% - 16px);
-      border-radius:999px;
-      background:var(--gold);
-    }
-    .meta b{
-      display:block;
-      color:#7d5d18;
-      font-size:12px;
-      letter-spacing:.16em;
-      margin-bottom:2px;
-    }
-
-    .body{display:block}
-    .hidden{display:none}
-
-    .stops{
-      margin:0;
-      padding:22px 22px 26px 46px;
-      list-style:none;
-      position:relative;
-    }
-    .stops:before{
-      content:"";
-      position:absolute;
-      top:26px;bottom:34px;left:31px;
-      width:1px;
-      background:linear-gradient(180deg,transparent,var(--gold),transparent);
-    }
-
-    .stop{
-      position:relative;
-      margin:0 0 14px;
-      padding:17px;
-      border:1px solid rgba(185,151,79,.34);
-      border-radius:26px;
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.94),rgba(255,253,247,.94));
-      box-shadow:0 9px 24px rgba(82,61,22,.07);
-    }
-
-    .stop:before{
-      content:"";
-      position:absolute;
-      left:-25px;top:22px;
-      width:13px;height:13px;
-      border-radius:50%;
-      background:#fff;
-      border:3px solid var(--gold);
-      box-shadow:0 0 0 5px rgba(215,189,121,.16);
-    }
-
-    .topline{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:10px;
-    }
-
-    .time{
-      background:linear-gradient(135deg,#1f1b16,#6f5320);
-      color:#fff8df;
-      border-radius:999px;
-      padding:7px 12px;
-      font-weight:950;
-      font-variant-numeric:tabular-nums;
-    }
-
-    .tag{
-      border:1px solid rgba(185,151,79,.3);
-      background:#fbf4e4;
-      color:#75591b;
-      border-radius:999px;
-      padding:7px 11px;
-      font-size:13px;
-      font-weight:850;
-    }
-
-    .stop h3{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-.01em;
-    }
-    .place{
-      color:#796d5c;
-      font-weight:900;
-      margin:5px 0 0;
-    }
-    .memo{
-      color:#64594c;
-      line-height:1.75;
-      margin:9px 0 14px;
-    }
-
-    .map{
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      text-decoration:none;
-      border:1px solid var(--gold);
-      border-radius:999px;
-      padding:9px 13px;
-      color:#654a13;
-      background:
-        linear-gradient(180deg,#fff,#fbf1d8);
-      font-size:13px;
-      font-weight:950;
-      transition:.2s ease;
-    }
-    .map:hover{
-      transform:translateY(-1px);
-      background:#1f1b16;
-      color:#fff8df;
-      box-shadow:0 10px 22px rgba(104,77,30,.16);
-    }
-
-    .footer{
-      background:
-        radial-gradient(circle at 12% 10%,rgba(215,189,121,.16),transparent 30%),
-        #1f1b16;
-      color:#fff8df;
-      padding:42px 18px;
-      border-top:4px solid var(--gold);
-    }
-    .footer h2{
-      margin:0 0 16px;
-      font-family:"Noto Serif TC","Songti TC",serif;
-      font-size:36px;
-      letter-spacing:-.03em;
-    }
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .step{
-      border:1px solid rgba(215,189,121,.38);
-      background:rgba(255,255,255,.07);
-      border-radius:26px;
-      padding:18px;
-      line-height:1.75;
-      color:#f4e9c8;
-    }
-    .num{
-      display:inline-flex;
-      width:38px;height:38px;
-      align-items:center;justify-content:center;
-      border-radius:50%;
-      background:linear-gradient(135deg,var(--gold2),var(--gold));
-      color:#1f1b16;
-      font-weight:950;
-      margin-bottom:10px;
-    }
-    .step b{display:block;color:#fff;font-size:18px;margin-bottom:2px}
-
-    @media(max-width:900px){
-      .hero{min-height:auto;padding:28px 16px 44px}
-      .hero-grid{display:block}
-      .hero:after{width:170px;height:170px;right:-20px;bottom:26px;opacity:.45}
-      .summary-card{margin-top:26px}
-      .main{display:block;padding:24px 14px 36px}
-      .side{position:static;margin-bottom:18px}
-      .btns{grid-template-columns:repeat(2,1fr)}
-      .meta{grid-template-columns:1fr;padding-left:24px}
-      .dayhead{padding:20px 16px 18px 24px;grid-template-columns:1fr 44px}
-      .chev{width:42px;height:42px}
-      .stops{padding:18px 14px 22px 38px}
-      .stops:before{left:25px}
-      .stop:before{left:-21px}
-      .steps{grid-template-columns:1fr}
-      .stats{grid-template-columns:repeat(3,1fr)}
-    }
-
-    @media(max-width:480px){
-      h1{font-size:43px}
-      .lead{font-size:16px}
-      .stats{grid-template-columns:1fr}
-      .summary-card{border-radius:26px}
-      .btns{grid-template-columns:1fr}
-      .stop h3{font-size:18px}
-    }
+    @media(max-width:900px){.hero{min-height:auto;padding:30px 0 34px}.hero-inner{display:block}.hero::after{width:160px;height:160px;right:-20px;bottom:16px;opacity:.45}.summary{margin-top:24px}.day-layout{display:block}.day-brief{position:static;margin-bottom:16px}.tabs{padding-inline:14px}.timeline{padding:18px 12px 6px}.timeline::before{left:28px}.stop{grid-template-columns:64px 1fr;gap:10px}.stop::before{left:3px}.stop-time{padding-left:22px;font-size:14px}.info-grid{grid-template-columns:1fr}.info-row{grid-template-columns:1fr;gap:4px}.hero .wrap{padding:0 14px}}
+    @media(max-width:520px){h1{font-size:43px}.lead{font-size:16px}.stats{grid-template-columns:1fr}.tab{padding:9px 12px}.day-brief h2{font-size:27px}.stop-card h3{font-size:18px}.stop{grid-template-columns:58px 1fr}.stop-time{font-size:13px}.wrap{padding:0 14px}}
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
+    <div class="wrap hero-inner">
+      <section>
         <span class="kicker"><span class="crest">旅</span> 2026/6/7–6/12｜花東縱谷漫遊</span>
-        <h1><span class="gold-text">稻浪、海岸線<br>與縱谷慢旅行</span></h1>
-        <p class="lead">白色和紙感底色、金邊細節、日式旅帖排版。每天可展開看時程、推估車程、停留時間、Google Maps 定位與天氣提醒，適合直接分享給同行親友手機查看。</p>
-      </div>
-      <aside class="summary-card">
+        <h1>白金旅帖<br>花東縱谷漫遊</h1>
+        <p class="lead">以日期分頁呈現每日行程；每站包含推估時間、停留時間與 Google Maps 連結。另有資訊頁整理全部住宿與餐廳定位資料，方便同行親友快速查找。</p>
+      </section>
+      <aside class="summary">
         <h2>旅の概要</h2>
         <div class="stats">
           <div class="stat"><b>6</b>天</div>
@@ -554,156 +129,179 @@
     </div>
   </header>
 
-  <main class="wrap main">
-    <aside class="side">
-      <div class="side-title">
-        <h2>行程篩選</h2>
-        <span class="seal">谷</span>
-      </div>
-      <div class="btns">
-        <button class="filter active" data-filter="all">全部停靠</button>
-        <button class="filter" data-filter="food">餐食</button>
-        <button class="filter" data-filter="spot">景點</button>
-        <button class="filter" data-filter="coffee">咖啡甜點</button>
-        <button class="filter" data-filter="stay">住宿</button>
-        <button class="filter" data-filter="drive">移動</button>
-      </div>
-      <div class="note">
-        <b>天氣提醒</b>
-        六月東部與屏東常有午後雷陣雨。出發前一天請再查中央氣象署縣市預報；海邊、山路、縱谷景點可能和市區預報不同。
-        <br><a target="_blank" rel="noreferrer" href="https://www.cwa.gov.tw/V8/C/W/County/index.html">查看中央氣象署 →</a>
-      </div>
-    </aside>
+  <nav class="tabs-shell" aria-label="日期分頁">
+    <div class="tabs wrap" id="tabs"></div>
+  </nav>
 
-    <section id="days" aria-label="每日行程"></section>
-  </main>
+  <main class="wrap" id="content"></main>
 
-  <footer class="footer">
-    <div class="wrap">
-      <h2>分享給大家使用</h2>
-      <div class="steps">
-        <div class="step"><span class="num">1</span><b>上傳 GitHub Pages</b>把 index.html 放到 repository 根目錄，Pages 選 main / root。</div>
-        <div class="step"><span class="num">2</span><b>取得正式網址</b>網址通常是「帳號.github.io/專案名稱/」，手機可直接開。</div>
-        <div class="step"><span class="num">3</span><b>貼到 LINE 群</b>大家點開即可查看，Google Map 按鈕會開定位搜尋。</div>
-      </div>
-    </div>
-  </footer>
+  <script>
+    const cwaLink = "https://www.cwa.gov.tw/V8/C/W/County/index.html";
+    const mapLink = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 
-<script>
-const days = [
-{date:"6/7（日）",title:"第一天｜嘉義出發 → 屏東 → 都蘭",base:"嘉義、屏東、臺東都蘭",weather:"南部至臺東偏炎熱，午後易有局部雷陣雨；海邊晚間較悶，建議備薄外套與雨具。",driveTotal:"約 5.5–6.5 小時",routeNote:"嘉義到屏東午餐後再跨南迴到都蘭，這天移動距離最長，建議提早出發。",stops:[
-["07:30","drive","嘉義出發","嘉義","出發準備 15 分","嘉義市","建議前一晚加滿油；早餐可車上簡單解決。"],
-["10:50","food","午餐｜屏東竹香園","屏東竹香園","停留 70–90 分","屏東竹香園","嘉義 → 屏東估 2.5–3 小時，含休息。"],
-["12:30","drive","往都蘭移動","南迴／臺東海岸","約 3–3.5 小時","屏東竹香園 到 都蘭","下午山區、海線可能遇陣雨，保守抓時間。"],
-["15:30","stay","住宿｜都蘭 峳海民宿","峳海民宿","Check-in 30 分","都蘭 峳海民宿","先放行李，再前往預約點。"],
-["16:00","spot","棉麻屋手工織品","棉麻屋手工織品","60 分","都蘭 棉麻屋手工織品","已排 16:00 預約，這是本日固定錨點。"],
-["17:20","coffee","都蘭海角咖啡","都蘭海角咖啡","60–75 分","都蘭海角咖啡","看海、拍照，接近傍晚光線佳。"],
-["19:00","food","晚餐｜都蘭自由覓食","都蘭街區","60–90 分","都蘭 晚餐","可依當天體力選簡單小吃或咖啡店輕食。"]]},
-{date:"6/8（一）",title:"第二天｜都蘭海線 → 長濱 → 玉里",base:"臺東東河、長濱、花蓮玉里",weather:"海岸線日照強、午後有短暫陣雨機率；金剛大道稻浪適合上午至午後前段安排。",driveTotal:"約 4–5 小時",routeNote:"沿臺11線北上，再經玉長公路進玉里；景點間距漂亮但山路需留緩衝。",stops:[
-["08:00","food","早餐｜民宿附早餐","峳海民宿","45 分","都蘭 峳海民宿","行李整理後退房。"],
-["09:10","spot","熊都蘭文創園區","熊都蘭文創園區","50–70 分","熊都蘭文創園區","適合慢逛、買小物。"],
-["10:40","spot","東管處、天空之鏡","東部海岸國家風景區管理處","70–90 分","東管處 天空之鏡","拍照點受潮汐與天候影響，雨後地面反射更明顯。"],
-["12:20","food","午餐｜宋媽媽海產店","宋媽媽海產店","70 分","宋媽媽海產店 長濱","建議先電話確認營業。"],
-["14:10","spot","長濱金剛大道稻浪","金剛大道","50–70 分","長濱 金剛大道","六月稻浪很美，日曬強，帽子必備。"],
-["15:20","drive","玉長公路","玉長公路","約 60–75 分","玉長公路","山路保守開，若起霧或下雨就減少停靠。"],
-["16:40","spot","南安遊客中心","南安遊客中心","35–50 分","南安遊客中心","作為進玉里前的收尾點。"],
-["17:50","stay","住宿｜玉里 涵品民宿","涵品民宿","Check-in 30 分","玉里 涵品民宿","晚餐前稍作休息。"],
-["18:40","food","玉里臭豆腐","玉里臭豆腐","40 分","玉里臭豆腐","可當晚餐第一站。"],
-["19:30","food","晚餐｜瑞蓮咖啡／馬蓋先美食玉里麵","玉里市區","60–90 分","瑞蓮咖啡 馬蓋先美食 玉里麵","視胃口二選一或分食。"]]},
-{date:"6/9（二）",title:"第三天｜玉里 → 富里 → 池上",base:"花蓮富里、臺東池上",weather:"縱谷白天炎熱、午後山邊雲量增多；稻田景點建議安排在下午較柔和光線。",driveTotal:"約 1.5–2.5 小時",routeNote:"移動輕鬆的一天，可把時間留給稻田、拍照和民宿休息。",stops:[
-["08:00","food","早餐｜北方早點","北方早點","45 分","玉里 北方早點","在地早餐，吃完往富里。"],
-["09:20","spot","富里稻草藝術園區","富里稻草藝術園區","60–75 分","富里稻草藝術園區","戶外展區，太熱可縮短。"],
-["10:50","spot","羅山遊客中心","羅山遊客中心","45–60 分","羅山遊客中心","可補水、上洗手間。"],
-["12:00","food","午餐｜富里馥茶堂","馥茶堂（富里火車站對面）","70 分","富里 馥茶堂","標註在富里火車站對面，方便定位。"],
-["14:00","stay","住宿｜池上 稻荷寒舍","稻荷寒舍","Check-in／休息 60 分","池上 稻荷寒舍","可先補眠，避開最熱時段。"],
-["15:40","spot","天堂路、伯朗大道","天堂路、伯朗大道","120 分","池上 天堂路 伯朗大道","建議租腳踏車或電輔車，傍晚拍照更舒服。"],
-["18:30","food","晚餐｜池上市區自由安排","池上市區","60–90 分","池上 晚餐","可找池上便當或在地小吃，早點休息。"]]},
-{date:"6/10（三）",title:"第四天｜池上 → 鹿野／龍田 → 臺東市",base:"池上、鹿野、臺東市",weather:"池上上午適合散步；鹿野、龍田午後較易悶熱或陣雨，戶外點可彈性調整。",driveTotal:"約 2–3 小時",routeNote:"從池上一路南下臺東市，景點節奏柔和，適合安排咖啡與綠色隧道。",stops:[
-["08:00","food","早餐｜民宿附早餐","稻荷寒舍","45 分","池上 稻荷寒舍","退房前可慢慢整理。"],
-["09:00","spot","大坡池","大坡池","60 分","池上 大坡池","上午湖邊散步舒服。"],
-["10:20","spot","穀倉美術館、池上火車站","穀倉美術館、池上車站","80–100 分","池上 穀倉美術館 池上火車站","文青拍照與伴手禮時間。"],
-["12:20","food","午餐｜台東戒治所咖啡館","台東戒治所咖啡館","75 分","台東戒治所咖啡館","電話：（089）581-014 #308；建議事先確認營業與入場。"],
-["14:20","spot","武陵綠色隧道","武陵綠色隧道","45–60 分","台東 武陵綠色隧道","午後若雨勢明顯，可改成車遊通過。"],
-["15:30","spot","龍田","龍田村","60–90 分","台東 龍田","慢步調田園村落。"],
-["17:30","stay","住宿｜台東 中華電信會館普悠瑪","中華電信會館普悠瑪","Check-in 30 分","台東 中華電信會館普悠瑪","進市區後補給方便。"],
-["18:40","food","晚餐｜夏安居蔬食","夏安居蔬食","70–90 分","台東 夏安居蔬食","連續幾天海產小吃後，安排蔬食平衡。"]]},
-{date:"6/11（四）",title:"第五天｜臺東市 → 枋寮 → 屏東住宿",base:"臺東市、枋寮、屏東",weather:"臺東市上午可戶外活動；午後往南迴與屏東移動，留意山區短暫雨及行車視線。",driveTotal:"約 3.5–4.5 小時",routeNote:"上午臺東市區，午餐後走南迴到枋寮、屏東；這天也要保守抓車程。",stops:[
-["08:00","food","早餐｜馬利諾廚房麵包","馬利諾廚房","30–45 分","台東 馬利諾廚房 麵包","買麵包可順便當車上點心。"],
-["09:00","spot","台東美術館／海濱公園／森林公園","台東市區","120 分","台東美術館 海濱公園 森林公園","三選二較舒服；若下雨就以美術館為主。"],
-["11:40","food","午餐｜卑南豬血湯 侯記老店","卑南豬血湯 侯記老店","60 分","卑南豬血湯 侯記老店","用餐後準備長距離移動。"],
-["13:00","drive","臺東 → 枋寮","南迴公路","約 2.5–3 小時","台東 到 枋寮 彩虹藝鐵園區","山路與休息時間一併納入。"],
-["16:00","spot","枋寮 彩虹藝鐵園區","彩虹藝鐵園區","45–60 分","枋寮 彩虹藝鐵園區","作為屏東段的輕鬆拍照點。"],
-["17:15","coffee","心之和乳酪","心之和乳酪","45–60 分","心之和乳酪","適合下午甜點與伴手禮。"],
-["18:30","stay","住宿｜野多宿","野多宿","Check-in 30 分","野多宿","先放行李再吃晚餐。"],
-["19:20","food","晚餐｜文記肉圓、冷熱冰","屏東夜間小吃","60–90 分","文記肉圓 冷熱冰","可當散步式晚餐。"]]},
-{date:"6/12（五）",title:"第六天｜潮州／屏東 → 回家",base:"屏東潮州、屏東市、嘉義",weather:"屏東平地炎熱，午後雷陣雨機率高；美術館可作為雨天備案核心。",driveTotal:"約 2.5–3.5 小時返程，視回家地點調整",routeNote:"最後一天安排潮州與屏東市，下午回嘉義或各自返家。",stops:[
-["08:30","food","早餐｜阿明肉包","阿明肉包","35–45 分","潮州 阿明肉包","避開太晚排隊。"],
-["09:30","spot","潮州日式歷史建築文化園區","潮州日式歷史建築文化園區","70–90 分","潮州日式歷史建築文化園區","慢逛拍照，上午較不熱。"],
-["11:40","food","午餐｜林家豬腳","林家豬腳","70 分","屏東 林家豬腳","可視用餐人數提早抵達。"],
-["13:30","spot","屏東縣立美術館","屏東縣立美術館","75–100 分","屏東縣立美術館","下午若下雨，這站非常適合延長。"],
-["15:30","drive","回家","返程","屏東 → 嘉義約 2–2.5 小時","屏東縣立美術館 到 嘉義市","避開晚高峰可提早出發。"]]}
-];
+    const days = [
+      {
+        id:"d1", tab:"6/7", date:"6/7（日）", title:"第一天｜嘉義出發 → 屏東 → 都蘭", base:"嘉義、屏東、臺東都蘭", weather:"南部至臺東偏炎熱，午後易有局部雷陣雨；海邊晚間較悶，建議備薄外套與雨具。", driveTotal:"約 5.5–6.5 小時", routeNote:"嘉義到屏東午餐後再跨南迴到都蘭，這天移動距離最長，建議提早出發。",
+        stops:[
+          ["07:30","移動","嘉義出發","嘉義","出發準備 15 分","嘉義市","建議前一晚加滿油；早餐可車上簡單解決。"],
+          ["10:50","餐食","午餐｜屏東竹香園","屏東竹香園","停留 70–90 分","屏東竹香園","嘉義 → 屏東估 2.5–3 小時，含休息。"],
+          ["12:30","移動","往都蘭移動","南迴／臺東海岸","約 3–3.5 小時","屏東竹香園 到 都蘭","下午山區、海線可能遇陣雨，保守抓時間。"],
+          ["15:30","住宿","住宿｜都蘭 峳海民宿","峳海民宿","Check-in 30 分","都蘭 峳海民宿","先放行李，再前往預約點。"],
+          ["16:00","景點","棉麻屋手工織品","棉麻屋手工織品","60 分","都蘭 棉麻屋手工織品","已排 16:00 預約，這是本日固定錨點。"],
+          ["17:20","咖啡","都蘭海角咖啡","都蘭海角咖啡","60–75 分","都蘭海角咖啡","看海、拍照，接近傍晚光線佳。"],
+          ["19:00","餐食","晚餐｜都蘭自由覓食","都蘭街區","60–90 分","都蘭 晚餐","可依當天體力選簡單小吃或咖啡店輕食。"]
+        ]
+      },
+      {
+        id:"d2", tab:"6/8", date:"6/8（一）", title:"第二天｜都蘭海線 → 長濱 → 玉里", base:"臺東東河、長濱、花蓮玉里", weather:"海岸線日照強、午後有短暫陣雨機率；金剛大道稻浪適合上午至午後前段安排。", driveTotal:"約 4–5 小時", routeNote:"沿臺11線北上，再經玉長公路進玉里；景點間距漂亮但山路需留緩衝。",
+        stops:[
+          ["08:00","餐食","早餐｜民宿附早餐","峳海民宿","45 分","都蘭 峳海民宿","行李整理後退房。"],
+          ["09:10","景點","熊都蘭文創園區","熊都蘭文創園區","50–70 分","熊都蘭文創園區","適合慢逛、買小物。"],
+          ["10:40","景點","東管處、天空之鏡","東部海岸國家風景區管理處","70–90 分","東管處 天空之鏡","拍照點受潮汐與天候影響，雨後地面反射更明顯。"],
+          ["12:20","餐食","午餐｜宋媽媽海產店","宋媽媽海產店","70 分","宋媽媽海產店 長濱","建議先電話確認營業。"],
+          ["14:10","景點","長濱金剛大道稻浪","金剛大道","50–70 分","長濱 金剛大道","六月稻浪很美，日曬強，帽子必備。"],
+          ["15:20","移動","玉長公路","玉長公路","約 60–75 分","玉長公路","山路保守開，若起霧或下雨就減少停靠。"],
+          ["16:40","景點","南安遊客中心","南安遊客中心","35–50 分","南安遊客中心","作為進玉里前的收尾點。"],
+          ["17:50","住宿","住宿｜玉里 涵品民宿","涵品民宿","Check-in 30 分","玉里 涵品民宿","晚餐前稍作休息。"],
+          ["18:40","餐食","玉里臭豆腐","玉里臭豆腐","40 分","玉里臭豆腐","可當晚餐第一站。"],
+          ["19:30","餐食","晚餐｜瑞蓮咖啡／馬蓋先美食玉里麵","玉里市區","60–90 分","瑞蓮咖啡 馬蓋先美食 玉里麵","視胃口二選一或分食。"]
+        ]
+      },
+      {
+        id:"d3", tab:"6/9", date:"6/9（二）", title:"第三天｜玉里 → 富里 → 池上", base:"花蓮富里、臺東池上", weather:"縱谷白天炎熱、午後山邊雲量增多；稻田景點建議安排在下午較柔和光線。", driveTotal:"約 1.5–2.5 小時", routeNote:"移動輕鬆的一天，可把時間留給稻田、拍照和民宿休息。",
+        stops:[
+          ["08:00","餐食","早餐｜北方早點","北方早點","45 分","玉里 北方早點","在地早餐，吃完往富里。"],
+          ["09:20","景點","富里稻草藝術園區","富里稻草藝術園區","60–75 分","富里稻草藝術園區","戶外展區，太熱可縮短。"],
+          ["10:50","景點","羅山遊客中心","羅山遊客中心","45–60 分","羅山遊客中心","可補水、上洗手間。"],
+          ["12:00","餐食","午餐｜富里馥茶堂","馥茶堂（富里火車站對面）","70 分","富里 馥茶堂","標註在富里火車站對面，方便定位。"],
+          ["14:00","住宿","住宿｜池上 稻荷寒舍","稻荷寒舍","Check-in／休息 60 分","池上 稻荷寒舍","可先補眠，避開最熱時段。"],
+          ["15:40","景點","天堂路、伯朗大道","天堂路、伯朗大道","120 分","池上 天堂路 伯朗大道","建議租腳踏車或電輔車，傍晚拍照更舒服。"],
+          ["18:30","餐食","晚餐｜池上市區自由安排","池上市區","60–90 分","池上 晚餐","可找池上便當或在地小吃，早點休息。"]
+        ]
+      },
+      {
+        id:"d4", tab:"6/10", date:"6/10（三）", title:"第四天｜池上 → 鹿野／龍田 → 臺東市", base:"池上、鹿野、臺東市", weather:"池上上午適合散步；鹿野、龍田午後較易悶熱或陣雨，戶外點可彈性調整。", driveTotal:"約 2–3 小時", routeNote:"從池上一路南下臺東市，景點節奏柔和，適合安排咖啡與綠色隧道。",
+        stops:[
+          ["08:00","餐食","早餐｜民宿附早餐","稻荷寒舍","45 分","池上 稻荷寒舍","退房前可慢慢整理。"],
+          ["09:00","景點","大坡池","大坡池","60 分","池上 大坡池","上午湖邊散步舒服。"],
+          ["10:20","景點","穀倉美術館、池上火車站","穀倉美術館、池上車站","80–100 分","池上 穀倉美術館 池上火車站","文青拍照與伴手禮時間。"],
+          ["12:20","餐食","午餐｜台東戒治所咖啡館","台東戒治所咖啡館","75 分","台東戒治所咖啡館","電話：（089）581-014 #308；建議事先確認營業與入場。"],
+          ["14:20","景點","武陵綠色隧道","武陵綠色隧道","45–60 分","台東 武陵綠色隧道","午後若雨勢明顯，可改成車遊通過。"],
+          ["15:30","景點","龍田","龍田村","60–90 分","台東 龍田","慢步調田園村落。"],
+          ["17:30","住宿","住宿｜台東 中華電信會館普悠瑪","中華電信會館普悠瑪","Check-in 30 分","台東 中華電信會館普悠瑪","進市區後補給方便。"],
+          ["18:40","餐食","晚餐｜夏安居蔬食","夏安居蔬食","70–90 分","台東 夏安居蔬食","連續幾天海產小吃後，安排蔬食平衡。"]
+        ]
+      },
+      {
+        id:"d5", tab:"6/11", date:"6/11（四）", title:"第五天｜臺東市 → 枋寮 → 屏東住宿", base:"臺東市、枋寮、屏東", weather:"臺東市上午可戶外活動；午後往南迴與屏東移動，留意山區短暫雨及行車視線。", driveTotal:"約 3.5–4.5 小時", routeNote:"上午臺東市區，午餐後走南迴到枋寮、屏東；這天也要保守抓車程。",
+        stops:[
+          ["08:00","餐食","早餐｜馬利諾廚房麵包","馬利諾廚房","30–45 分","台東 馬利諾廚房 麵包","買麵包可順便當車上點心。"],
+          ["09:00","景點","台東美術館／海濱公園／森林公園","台東市區","120 分","台東美術館 海濱公園 森林公園","三選二較舒服；若下雨就以美術館為主。"],
+          ["11:40","餐食","午餐｜卑南豬血湯 侯記老店","卑南豬血湯 侯記老店","60 分","卑南豬血湯 侯記老店","用餐後準備長距離移動。"],
+          ["13:00","移動","臺東 → 枋寮","南迴公路","約 2.5–3 小時","台東 到 枋寮 彩虹藝鐵園區","山路與休息時間一併納入。"],
+          ["16:00","景點","枋寮 彩虹藝鐵園區","彩虹藝鐵園區","45–60 分","枋寮 彩虹藝鐵園區","作為屏東段的輕鬆拍照點。"],
+          ["17:15","咖啡","心之和乳酪","心之和乳酪","45–60 分","心之和乳酪","適合下午甜點與伴手禮。"],
+          ["18:30","住宿","住宿｜野多宿","野多宿","Check-in 30 分","野多宿","先放行李再吃晚餐。"],
+          ["19:20","餐食","晚餐｜文記肉圓、冷熱冰","屏東夜間小吃","60–90 分","文記肉圓 冷熱冰","可當散步式晚餐。"]
+        ]
+      },
+      {
+        id:"d6", tab:"6/12", date:"6/12（五）", title:"第六天｜潮州／屏東 → 回家", base:"屏東潮州、屏東市、嘉義", weather:"屏東平地炎熱，午後雷陣雨機率高；美術館可作為雨天備案核心。", driveTotal:"約 2.5–3.5 小時返程，視回家地點調整", routeNote:"最後一天安排潮州與屏東市，下午回嘉義或各自返家。",
+        stops:[
+          ["08:30","餐食","早餐｜阿明肉包","阿明肉包","35–45 分","潮州 阿明肉包","避開太晚排隊。"],
+          ["09:30","景點","潮州日式歷史建築文化園區","潮州日式歷史建築文化園區","70–90 分","潮州日式歷史建築文化園區","慢逛拍照，上午較不熱。"],
+          ["11:40","餐食","午餐｜林家豬腳","林家豬腳","70 分","屏東 林家豬腳","可視用餐人數提早抵達。"],
+          ["13:30","景點","屏東縣立美術館","屏東縣立美術館","75–100 分","屏東縣立美術館","下午若下雨，這站非常適合延長。"],
+          ["15:30","移動","回家","返程","屏東 → 嘉義約 2–2.5 小時","屏東縣立美術館 到 嘉義市","避開晚高峰可提早出發。"]
+        ]
+      }
+    ];
 
-const typeLabel={food:"餐食",spot:"景點",coffee:"咖啡",stay:"住宿",drive:"移動"};
-const typeIcon={food:"箸",spot:"景",coffee:"茶",stay:"宿",drive:"車"};
-function maps(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q)}
+    const info = {
+      hotels:[
+        ["6/7 都蘭｜峳海民宿", "都蘭 峳海民宿", "住宿地址請以訂房平台或民宿回覆為準；此處提供 Google Maps 定位。"],
+        ["6/8 玉里｜涵品民宿", "玉里 涵品民宿", "住宿地址請以訂房平台或民宿回覆為準；此處提供 Google Maps 定位。"],
+        ["6/9 池上｜稻荷寒舍", "池上 稻荷寒舍", "住宿地址請以訂房平台或民宿回覆為準；此處提供 Google Maps 定位。"],
+        ["6/10 台東｜中華電信會館普悠瑪", "台東 中華電信會館普悠瑪", "住宿地址請以訂房資訊為準；此處提供 Google Maps 定位。"],
+        ["6/11 屏東｜野多宿", "野多宿", "住宿地址請以訂房平台或民宿回覆為準；此處提供 Google Maps 定位。"]
+      ],
+      restaurants:[
+        ["屏東竹香園", "屏東竹香園", "6/7 午餐"],
+        ["都蘭海角咖啡", "都蘭海角咖啡", "6/7 下午咖啡"],
+        ["宋媽媽海產店", "宋媽媽海產店 長濱", "6/8 午餐"],
+        ["玉里臭豆腐", "玉里臭豆腐", "6/8 晚餐第一站"],
+        ["瑞蓮咖啡", "瑞蓮咖啡 玉里", "6/8 晚餐備選"],
+        ["馬蓋先美食玉里麵", "馬蓋先美食 玉里麵", "6/8 晚餐備選"],
+        ["北方早點", "玉里 北方早點", "6/9 早餐"],
+        ["富里馥茶堂", "富里 馥茶堂", "6/9 午餐，富里火車站對面"],
+        ["台東戒治所咖啡館", "台東戒治所咖啡館", "6/10 午餐；電話（089）581-014 #308"],
+        ["夏安居蔬食", "台東 夏安居蔬食", "6/10 晚餐"],
+        ["馬利諾廚房麵包", "台東 馬利諾廚房 麵包", "6/11 早餐"],
+        ["卑南豬血湯 侯記老店", "卑南豬血湯 侯記老店", "6/11 午餐"],
+        ["心之和乳酪", "心之和乳酪", "6/11 下午甜點"],
+        ["文記肉圓", "文記肉圓", "6/11 晚餐"],
+        ["冷熱冰", "屏東 冷熱冰", "6/11 晚餐甜點"],
+        ["阿明肉包", "潮州 阿明肉包", "6/12 早餐"],
+        ["林家豬腳", "屏東 林家豬腳", "6/12 午餐"]
+      ]
+    };
 
-function render(filter="all"){
-  const root=document.getElementById("days");
-  root.innerHTML=days.map((d,i)=>{
-    const stops=d.stops.filter(s=>filter==="all"||s[1]===filter);
-    if(filter!=="all" && stops.length===0) return "";
-    return `
-    <article class="day ${i===0 || filter!=="all" ? "open" : ""}" data-day="${i}">
-      <button class="dayhead" onclick="toggleDay(${i})" aria-expanded="${i===0 || filter!=="all"}">
-        <div>
-          <span class="date">◇ ${d.date}</span>
-          <h2>${d.title}</h2>
-          <p class="route">${d.routeNote}</p>
+    function renderTabs(activeId){
+      const tabs = document.getElementById("tabs");
+      const items = [...days.map(d => [d.id, d.tab]), ["info", "資訊頁"]];
+      tabs.innerHTML = items.map(([id,label]) => `<button class="tab ${id===activeId ? "active" : ""}" onclick="setTab('${id}')">${label}</button>`).join("");
+    }
+
+    function renderDay(day){
+      return `<section class="panel active"><div class="day-layout">
+        <aside class="day-brief">
+          <span class="date-badge">◇ ${day.date}</span>
+          <h2>${day.title}</h2>
+          <p class="brief-text">${day.routeNote}</p>
+          <div class="brief-grid">
+            <div class="brief-item"><b>當日天氣</b>${day.weather}</div>
+            <div class="brief-item"><b>車程總量</b>${day.driveTotal}</div>
+            <div class="brief-item"><b>主要區域</b>${day.base}</div>
+          </div>
+          <a class="weather-link" href="${cwaLink}" target="_blank" rel="noreferrer">中央氣象署縣市預報 →</a>
+        </aside>
+        <section class="timeline">
+          ${day.stops.map(stop => `<article class="stop">
+            <div class="stop-time">${stop[0]}</div>
+            <div class="stop-card">
+              <div class="stop-top"><span class="chip">${stop[1]}</span><span class="chip">${stop[4]}</span></div>
+              <h3>${stop[2]}</h3>
+              <div class="place">${stop[3]}</div>
+              <p class="memo">${stop[6]}</p>
+              <a class="map" href="${mapLink(stop[5])}" target="_blank" rel="noreferrer">Google Map ↗</a>
+            </div>
+          </article>`).join("")}
+        </section>
+      </div></section>`;
+    }
+
+    function renderInfo(){
+      const row = item => `<div class="info-row"><div class="info-name">${item[0]}</div><div class="info-detail">${item[2]}<small>地址／定位：${item[1]}</small><a href="${mapLink(item[1])}" target="_blank" rel="noreferrer">開啟 Google Maps 查地址 ↗</a></div></div>`;
+      return `<section class="panel active">
+        <div class="info-head">
+          <h2>住宿與餐廳地址資訊</h2>
+          <p>我已改成可直接查地址的資訊頁：每筆住宿與餐廳都提供 Google Maps 定位欄位與開啟連結。部分民宿與小店在公開搜尋結果中沒有穩定顯示完整門牌，為避免填錯，實際門牌請以點開後的 Google Maps 店家頁面為準。</p>
         </div>
-        <span class="chev">⌄</span>
-      </button>
-      <div class="body ${i===0 || filter!=="all" ? "" : "hidden"}">
-        <div class="meta">
-          <div><b>當日天氣</b>${d.weather}</div>
-          <div><b>車程總量</b>${d.driveTotal}</div>
-          <div><b>主要區域</b>${d.base}</div>
+        <div class="info-grid">
+          <article class="info-card"><h3>住宿</h3><div class="info-list">${info.hotels.map(row).join("")}</div></article>
+          <article class="info-card"><h3>餐廳／咖啡／甜點</h3><div class="info-list">${info.restaurants.map(row).join("")}</div></article>
         </div>
-        <ul class="stops">
-          ${stops.map(s=>`
-            <li class="stop" data-type="${s[1]}">
-              <div class="topline">
-                <span class="time">${s[0]}</span>
-                <span class="tag">${typeIcon[s[1]] || "旅"} ${typeLabel[s[1]]}</span>
-                <span class="tag">${s[4]}</span>
-              </div>
-              <h3>${s[2]}</h3>
-              <div class="place">${s[3]}</div>
-              <p class="memo">${s[6]}</p>
-              <a class="map" target="_blank" rel="noreferrer" href="${maps(s[5])}">Google Map ↗</a>
-            </li>`).join("")}
-        </ul>
-      </div>
-    </article>`;
-  }).join("");
-}
+      </section>`;
+    }
 
-function toggleDay(i){
-  const day=document.querySelector(`[data-day="${i}"]`);
-  const body=day.querySelector(".body");
-  const button=day.querySelector(".dayhead");
-  const isHidden=body.classList.toggle("hidden");
-  day.classList.toggle("open", !isHidden);
-  button.setAttribute("aria-expanded", String(!isHidden));
-}
+    function setTab(id){
+      renderTabs(id);
+      const content = document.getElementById("content");
+      content.innerHTML = id === "info" ? renderInfo() : renderDay(days.find(d => d.id === id));
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
 
-document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  render(btn.dataset.filter);
-}));
-
-render();
-</script>
+    setTab("d1");
+  </script>
 </body>
 </html>
